@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>환수도사(Hwansudosha) - 약관 및 정책</title>
+    <style>
+        /* 모바일 및 웹 공통 깔끔한 레이아웃 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #111;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #888;
+            text-align: left;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        /* 세련된 버튼 스타일 */
+        .btn {
+            display: block;
+            background-color: #212529;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn:hover {
+            background-color: #343a40;
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+        /* 영문 버튼용 흐린 스타일 (구분용) */
+        .btn-en {
+            background-color: #6c757d;
+        }
+        .btn-en:hover {
+            background-color: #495057;
+        }
+
+        /* 다크모드 대응 */
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #121212; }
+            .container { background-color: #1e1e1e; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+            h1 { color: #fff; }
+            .subtitle { color: #aaa; }
+            .btn { background-color: #f8f9fa; color: #121212; }
+            .btn:hover { background-color: #e2e6ea; }
+            .btn-en { background-color: #ab0b0; color: #121212; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>환수도사 (Hwansudosha)</h1>
+        <div class="subtitle">공식 이용약관 및 개인정보처리방침</div>
+
+        <!-- 한국어 약관 버튼 메뉴 -->
+        <div class="section-title">한국어 (KOREAN)</div>
+        <div class="btn-group">
+            <a href="./ko/privacy.html" class="btn">개인정보처리방침</a>
+            <a href="./ko/terms.html" class="btn">이용약관</a>
+        </div>
+
+        <!-- 영어 약관 버튼 메뉴 (경로 미리 연결 완료) -->
+        <div class="section-title">ENGLISH</div>
+        <div class="btn-group">
+            <a href="./en/privacy.html" class="btn btn-en">Privacy Policy</a>
+            <a href="./en/terms.html" class="btn btn-en">Terms of Service</a>
+        </div>
+    </div>
+
+</body>
+</html>
