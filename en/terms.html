@@ -2,124 +2,254 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- 모바일 화면 비율이 깨지지 않도록 강제하는 핵심 메타 태그 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>환수도사 - 개인정보처리방침</title>
+    <title>HESUDAN STUDIO - Terms of Service</title>
     <style>
-        /* 기본 모바일 최적화 스타일링 */
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            line-height: 1.7; 
-            color: #222; 
-            background-color: #fff;
-            padding: 24px 16px; 
-            max-width: 720px; 
-            margin: 0 auto; 
-            word-break: keep-all; /* 한글 가독성을 위해 단어 단위로 줄바꿈 */
+        /* 기본 스타일 및 공식 홈페이지 레이아웃 통일 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #fff;
+            background-color: #121212;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            word-break: keep-all;
         }
-        h1 { font-size: 24px; font-weight: 700; border-bottom: 2px solid #111; padding-bottom: 12px; margin-bottom: 24px; }
-        h2 { font-size: 18px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #000; }
-        p, li { font-size: 14px; color: #444; margin-bottom: 10px; }
-        ul { padding-left: 20px; }
-        
-        /* 다크모드 대응 (유저 스마트폰이 다크모드일 때 눈부심 방지) */
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #121212; color: #e0e0e0; }
-            h1 { border-bottom-color: #444; color: #fff; }
-            h2 { color: #fff; }
-            p, li { color: #b0b0b0; }
+
+        /* 상단 헤더 바 (백드롭 블러 스타일 유지) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #fff; }
+
+        /* 약관 본문 컨테이너 영역 */
+        .container {
+            flex: 1;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 약관 텍스트 타이포그래피 스타일링 */
+        h1 { 
+            font-size: 28px; 
+            font-weight: 700; 
+            border-bottom: 2px solid #fff; 
+            padding-bottom: 16px; 
+            margin-bottom: 12px; 
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        .date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        h2 { 
+            font-size: 19px; 
+            font-weight: 600; 
+            margin-top: 40px; 
+            margin-bottom: 16px; 
+            color: #fff; 
+            border-left: 4px solid #fff;
+            padding-left: 10px;
+        }
+        p, li { 
+            font-size: 15px; 
+            color: #ccc; 
+            line-height: 1.8; 
+            margin-bottom: 12px; 
+        }
+        p span {
+            display: block;
+            margin-top: 6px;
+            padding-left: 4px;
+        }
+
+        /* 하단 푸터 (구글 주소지 증빙용 정보 노출) */
+        footer {
+            background: #090909;
+            padding: 30px 40px;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.8;
+        }
+        .footer-info {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .footer-links {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .footer-links a:hover { color: #fff; }
+
+        /* 모바일 화면 대응 패딩 조절 */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .container { padding: 40px 16px; border: none; }
+            h1 { font-size: 22px; }
+            h2 { font-size: 17px; }
+            p, li { font-size: 14px; }
+            footer { padding: 25px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Terms of Service: Hwansudosha</h1>
-    <p>Last Updated: May 13, 2026</p>
-    
-    <h2>Article 1 (Purpose)</h2>
-    <p>
-          &#9312; These Terms of Service (hereinafter referred to as the "Terms") aim to prescribe the rights, obligations, responsibilities, and other necessary matters between HESUDAN (hereinafter referred to as the "Company") and the user (hereinafter referred to as the "Member") regarding the use of the mobile game 'Hwansudosha' and its related services (hereinafter referred to as the "Service").
-    </p>   
-    </ul>
-    
-    <h2>Article 2 (Definitions)</h2>
-    <p>
-          The definitions of terms used in these Terms are as follows:<br>
-          &#9312; "Member" refers to a person who enters into a usage contract in accordance with these Terms and uses the "Service" provided by the "Company."<br>
-          &#9313; "Mobile Device" refers to devices capable of downloading and installing the "Service," including smartphones and tablets.<br>
-          &#9314; "Account Information" collectively refers to the Member's identification number, external account information, device information, nickname, character image, and game usage information (level, items, scores, etc.) provided to the "Company."<br>
-          &#9315; "Content" refers to items, characters, images, background music, and all related digital information created by the "Company" in connection with the provision of the "Service."<br>
-          &#9316; "Jade" (Ok) refers to the virtual currency used within the "Service" to purchase "Content" or enhance game features.
-    </p>
-    </ul>
-  
-    <h2>Article 3 (Provision of Company Information)</h2>
-    <p>
-          The "Company" shall post the following information on the in-game settings screen or connected screen so that "Members" can easily recognize it:<br>
-          &#9312;  Trade Name: HESUDAN<br>
-          &#9313; Contact Information (Email): [Enter your email address]
-    </p>
-    </ul>
-    
-    <h2>Article 4 (Effectiveness and Changes of the Terms)</h2>
-    <p>
-          &#9312; These Terms shall take effect upon being posted within the "Service" or through a linked screen.<br>
-          &#9313; The "Company" may amend these Terms to the extent that they do not violate relevant laws and regulations.<br>
-          &#9313; In the event of an amendment, the "Company" shall notify the "Member" within the "Service" at least 7 days prior to the application date (30 days prior for changes disadvantageous to the Member).
-    </p>
-    </ul>
-    
-    <h2>Article 5 (Ownership of Copyrights, etc.)</h2>
-    <p>
-          &#9312; All copyrights and other intellectual property rights for all graphical assets based on traditional Korean art and "Content" produced by the "Company" within the "Service" belong to the "Company."<br>
-          &#9313;  "Members" shall not reproduce, transmit, publish, distribute, or use for commercial purposes the information obtained by using the "Service" without the prior consent of the "Company."
-    </p>
-    </ul>
-    
-    <h2>Article 6 (Changes and Suspension of Service)</h2>
-    <p>
-          &#9312;  The "Company" may modify or change all or part of the "Service" according to operational or technical needs for smooth service provision.<br>
-          &#9313;  The "Company" may temporarily suspend the "Service" in the event of technical defects, server maintenance, network failure, or force majeure events such as natural disasters.
-    </p>
-    </ul>
+    <header>
+        <div class="logo">
+            <a href="../index.html?lang=en">
+                <img src="../logo.png" alt="HESUDAN">
+                <span>HESUDAN</span>
+            </a>
+        </div>
+        <nav>
+            <a href="../index.html?lang=en">Home</a>
+            <a href="./privacy.html">Privacy Policy</a>
+            <a href="./terms.html" style="color: #fff; font-weight: bold;">Terms of Service</a>
+        </nav>
+    </header>
 
-    <h2>Article 7 (Account Deletion and Data Destruction)</h2>
-    <p>
-          &#9312; "Members" may terminate the usage contract at any time via the 'Delete Account' button in the in-game settings menu.<br>
-          &#9313;  Upon deletion, all "Jade" and game usage data held by the "Member" will be destroyed immediately and cannot be recovered under any circumstances.
-    </p>
-    </ul>
+    <div class="container">
+        <h1>Terms of Service: Hwansudosha</h1>
+        <p class="date">Last Updated: May 13, 2026</p>
+        
+        <h2>Article 1 (Purpose)</h2>
+        <p>
+            These Terms of Service (hereinafter referred to as the "Terms") aim to prescribe the rights, obligations, responsibilities, and other necessary matters between HESUDAN (hereinafter referred to as the "Company") and the user (hereinafter referred to as the "Member") regarding the use of the mobile game 'Hwansudosha' and its related services (hereinafter referred to as the "Service").
+        </p>    
+        
+        <h2>Article 2 (Definitions)</h2>
+        <p>
+            The definitions of terms used in these Terms are as follows:
+            <span>① "Member" refers to a person who enters into a usage contract in accordance with these Terms and uses the "Service" provided by the "Company."</span>
+            <span>② "Mobile Device" refers to devices capable of downloading and installing the "Service," including smartphones and tablets.</span>
+            <span>③ "Account Information" collectively refers to the Member's identification number, external account information, device information, nickname, character image, and game usage information (level, items, scores, etc.) provided to the "Company."</span>
+            <span>④ "Content" refers to items, characters, images, background music, and all related digital information created by the "Company" in connection with the provision of the "Service."</span>
+            <span>⑤ "Jade" (Ok) refers to the virtual currency used within the "Service" to purchase "Content" or enhance game features.</span>
+        </p>
+      
+        <h2>Article 3 (Provision of Company Information)</h2>
+        <p>
+            The "Company" shall post the following information on the in-game settings screen or connected screen so that "Members" can easily recognize it:
+            <span>① Trade Name: HESUDAN</span>
+            <span>② Contact Information (Email): teamhasudan@gmail.com</span>
+        </p>
+        
+        <h2>Article 4 (Effectiveness and Changes of the Terms)</h2>
+        <p>
+            <span>① These Terms shall take effect upon being posted within the "Service" or through a linked screen.</span>
+            <span>② The "Company" may amend these Terms to the extent that they do not violate relevant laws and regulations.</span>
+            <span>③ In the event of an amendment, the "Company" shall notify the "Member" within the "Service" at least 7 days prior to the application date (30 days prior for changes disadvantageous to the Member).</span>
+        </p>
+        
+        <h2>Article 5 (Ownership of Copyrights, etc.)</h2>
+        <p>
+            <span>① All copyrights and other intellectual property rights for all graphical assets based on traditional Korean art and "Content" produced by the "Company" within the "Service" belong to the "Company."</span>
+            <span>② "Members" shall not reproduce, transmit, publish, distribute, or use for commercial purposes the information obtained by using the "Service" without the prior consent of the "Company."</span>
+        </p>
+        
+        <h2>Article 6 (Changes and Suspension of Service)</h2>
+        <p>
+            <span>① The "Company" may modify or change all or part of the "Service" according to operational or technical needs for smooth service provision.</span>
+            <span>② The "Company" may temporarily suspend the "Service" in the event of technical defects, server maintenance, network failure, or force majeure events such as natural disasters.</span>
+        </p>
 
-    <h2>Article 8 (User Obligations and Restrictions)</h2>
-    <p>
-          "Members" shall not engage in any of the following acts:<br>
-          &#9312;  Acts that neutralize technical protection measures or interfere with operations (hacking, bug abuse, etc.).<br>
-          &#9313;  Acts of stealing another person's account information or registering false information.<br>
-          &#9314;  Requesting fraudulent refunds through the store without justifiable cause after using purchased "Jade" or items.
-    </p>
-    </ul>
+        <h2>Article 7 (Account Deletion and Data Destruction)</h2>
+        <p>
+            <span>① "Members" may terminate the usage contract at any time via the 'Delete Account' button in the in-game settings menu.</span>
+            <span>② Upon deletion, all "Jade" and game usage data held by the "Member" will be destroyed immediately and cannot be recovered under any circumstances.</span>
+        </p>
 
-    <h2>Article 9 (Disclaimer of Liability)</h2>
-    <p>
-          "회원"은 다음 각 호의 행위를 하여서는 안 됩니다.<br>
-          &#9312;  The "Company" shall be exempt from liability if it is unable to provide the "Service" due to war, hostilities, natural disasters, emergencies, technical defects unsolvable by current technology, or other force majeure events.<br>
-          &#9313;  The "Company" shall not be liable for the suspension of "Service," obstacles, or termination of the contract due to reasons attributable to the "Member's" intent or negligence.<br>
-          &#9314;  The "Company" shall not be liable for damages incurred by the "Member" due to the suspension or failure of telecommunications services provided by telecommunications carriers.<br>
-          &#9315;  The "Company" shall not be liable for the suspension of "Service" due to unavoidable reasons such as maintenance, replacement, or regular inspection of facilities announced in advance.<br>
-          &#9316;  The "Company" shall not be liable for third-party payments caused by the "Member's" failure to manage the password setting function of the "Mobile Device."<br>
-          &#9317;  The "Company" shall not be liable for the "Member's" failure to obtain or the loss of expected results such as scores, levels, items, or virtual currency while using the "Service."<br>
-          &#9318;  The "Company" is not obligated to intervene in disputes arising between "Members" or between a "Member" and a third party through the "Service" and shall not be liable for damages resulting therefrom.
-    </p>
-    </ul>
+        <h2>Article 8 (User Obligations and Restrictions)</h2>
+        <p>
+            "Members" shall not engage in any of the following acts:
+            <span>① Acts that neutralize technical protection measures or interfere with operations (hacking, bug abuse, etc.).</span>
+            <span>② Acts of stealing another person's account information or registering false information.</span>
+            <span>③ Requesting fraudulent refunds through the store without justifiable cause after using purchased "Jade" or items.</span>
+        </p>
 
-    <p>
-          Announcement Date: [Month] [Day], 2026<br>
-          Effective Date: [Month] [Day], 2026
-    </p>
-    </ul>
-    
-    
-    <!-- 나머지 약관 내용을 <h2>와 <p>, <ul> 태그를 활용해 채워주세요 -->
+        <h2>Article 9 (Disclaimer of Liability)</h2>
+        <p>
+            <span>① The "Company" shall be exempt from liability if it is unable to provide the "Service" due to war, hostilities, natural disasters, emergencies, technical defects unsolvable by current technology, or other force majeure events.</span>
+            <span>② The "Company" shall not be liable for the suspension of "Service," obstacles, or termination of the contract due to reasons attributable to the "Member's" intent or negligence.</span>
+            <span>③ The "Company" shall not be liable for damages incurred by the "Member" due to the suspension or failure of telecommunications services provided by telecommunications carriers.</span>
+            <span>④ The "Company" shall not be liable for the suspension of "Service" due to unavoidable reasons such as maintenance, replacement, or regular inspection of facilities announced in advance.</span>
+            <span>⑤ The "Company" shall not be liable for third-party payments caused by the "Member's" failure to manage the password setting function of the "Mobile Device."</span>
+            <span>⑥ The "Company" shall not be liable for the "Member's" failure to obtain or the loss of expected results such as scores, levels, items, or virtual currency while using the "Service."</span>
+            <span>⑦ The "Company" is not obligated to intervene in disputes arising between "Members" or between a "Member" and a third party through the "Service" and shall not be liable for damages resulting therefrom.</span>
+        </p>
+
+        <p style="margin-top: 40px; color: #888;">
+            Announcement Date: May 13, 2026<br>
+            Effective Date: May 13, 2026
+        </p>
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <div class="footer-links">
+                <a href="./privacy.html">Privacy Policy</a>
+                <a href="./terms.html">Terms of Service</a>
+            </div>
+            <p>Studio: HESUDAN | CEO: Sunghoon Jung</p>
+            <p>Address: Room 103, 24-26 Maehol-ro 77beon-gil, Osan-si, Gyeonggi-do, Republic of Korea</p> 
+            <p>Email: tjdgns1131@gmail.com</p>
+            <p style="margin-top: 10px;">&copy; 2026 HESUDAN. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>

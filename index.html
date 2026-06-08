@@ -2,113 +2,230 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>환수도사(Hwansudosha) - 약관 및 정책</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HESUDAN STUDIO</title>
     <style>
-        /* 모바일 및 웹 공통 깔끔한 레이아웃 */
+        /* 기본 스타일 초기화 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #fff;
+            background-color: #121212;
+            /* 배경 이미지 (기존 bg.jpg 그대로 활용) */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 8px;
-            color: #111;
-        }
-        .subtitle {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 32px;
-        }
-        .section-title {
-            font-size: 12px;
-            font-weight: bold;
-            color: #888;
-            text-align: left;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-        .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-        /* 세련된 버튼 스타일 */
-        .btn {
-            display: block;
-            background-color: #212529;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 500;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-        .btn:hover {
-            background-color: #343a40;
-        }
-        .btn:active {
-            transform: scale(0.98);
-        }
-        /* 영문 버튼용 흐린 스타일 (구분용) */
-        .btn-en {
-            background-color: #6c757d;
-        }
-        .btn-en:hover {
-            background-color: #495057;
         }
 
-        /* 다크모드 대응 */
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #121212; }
-            .container { background-color: #1e1e1e; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-            h1 { color: #fff; }
-            .subtitle { color: #aaa; }
-            .btn { background-color: #f8f9fa; color: #121212; }
-            .btn:hover { background-color: #e2e6ea; }
-            .btn-en { background-color: #ab0b0; color: #121212; }
+        /* 헤더 / 네비게이션 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #fff; }
+
+        /* 🌐 언어 선택 토글 스위치 스타일 */
+        .lang-switcher {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #888;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 18px;
+            transition: all 0.3s;
+        }
+        .lang-btn.active {
+            background: #fff;
+            color: #000;
+        }
+
+        /* 메인 콘텐츠 메인 배너 */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .studio-title {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .studio-desc {
+            font-size: 1.2rem;
+            color: #bbb;
+            max-width: 650px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            word-break: keep-all;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #ddd; }
+
+        /* 하단 푸터 */
+        footer {
+            background: #090909;
+            padding: 30px 40px;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.8;
+        }
+        .footer-info {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .footer-links {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .footer-links a:hover { color: #fff; }
+
+        /* 💡 언어별 텍스트 숨김/보여주기 제어 */
+        .lang-en { display: none; }
+        
+        /* 현재 바디의 클래스가 'en'일 때의 스타일 */
+        body.en .lang-ko { display: none; }
+        body.en .lang-en { display: block; }
+        body.en .lang-en-inline { display: inline-block; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>환수도사 (Hwansudosha)</h1>
-        <div class="subtitle">공식 이용약관 및 개인정보처리방침</div>
-
-        <!-- 한국어 약관 버튼 메뉴 -->
-        <div class="section-title">한국어 (KOREAN)</div>
-        <div class="btn-group">
-            <a href="./ko/privacy.html" class="btn">개인정보처리방침</a>
-            <a href="./ko/terms.html" class="btn">이용약관</a>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="HESUDAN">
+            <span>HESUDAN</span>
         </div>
+        
+        <div class="nav-container">
+            <nav>
+                <a href="./ko/privacy.html" class="lang-ko">개인정보처리방침</a>
+                <a href="./ko/terms.html" class="lang-ko" style="margin-left: 20px;">이용약관</a>
+                
+                <a href="./en/privacy.html" class="lang-en">Privacy Policy</a>
+                <a href="./en/terms.html" class="lang-en lang-en-inline" style="margin-left: 20px;">Terms of Service</a>
+            </nav>
 
-        <!-- 영어 약관 버튼 메뉴 (경로 미리 연결 완료) -->
-        <div class="section-title">ENGLISH</div>
-        <div class="btn-group">
-            <a href="./en/privacy.html" class="btn btn-en">Privacy Policy</a>
-            <a href="./en/terms.html" class="btn btn-en">Terms of Service</a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLanguage('ko')">KR</button>
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            </div>
         </div>
-    </div>
+    </header>
+
+    <main>
+        <h1 class="studio-title">Hesudan Studio</h1>
+        
+        <p class="studio-desc lang-ko">전통적인 한국의 감성과 현대적인 재미를 융합한 독창적인 모바일 게임을 제작합니다.</p>
+        <a href="./ko/privacy.html" class="btn lang-ko" id="main-btn-ko">약관 확인하기</a>
+
+        <p class="studio-desc lang-en">We create unique mobile games that blend traditional Korean aesthetics with modern gaming experiences.</p>
+        <a href="./en/privacy.html" class="btn lang-en lang-en-inline" id="main-btn-en">View Policies</a>
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <div class="footer-links lang-ko">
+                <a href="./ko/privacy.html">개인정보처리방침</a>
+                <a href="./ko/terms.html">이용약관</a>
+            </div>
+            <p class="lang-ko">상호명: 혜수단(HESUDAN) | 대표자: 정성훈</p>
+            <p class="lang-ko">주소: 경기도 오산시 매홀로77번길 24-26, 103호</p>
+            <p class="lang-ko">이메일: teamhasudan@gmail.com</p>
+
+            <div class="footer-links lang-en">
+                <a href="./en/privacy.html">Privacy Policy</a>
+                <a href="./en/terms.html" class="lang-en-inline">Terms of Service</a>
+            </div>
+            <p class="lang-en">Studio: HESUDAN | Representative: Sunghoon Jung</p>
+            <p class="lang-en">Address: Room103, 24-26Maehol-ro77beon-gil, Osan-si, Gyeonggi-do, Republic of Korea</p>
+            <p class="lang-en">Email: teamhasudan@gmail.com</p>
+            
+            <p style="margin-top: 10px;">&copy; 2026 HESUDAN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.lang-btn');
+            
+            if (lang === 'en') {
+                body.classList.add('en');
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+                document.documentElement.lang = 'en';
+            } else {
+                body.classList.remove('en');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+                document.documentElement.lang = 'ko';
+            }
+        }
+    </script>
 
 </body>
 </html>

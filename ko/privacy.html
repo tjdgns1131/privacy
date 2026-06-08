@@ -2,94 +2,227 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <!-- 모바일 화면 비율이 깨지지 않도록 강제하는 핵심 메타 태그 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>환수도사 - 개인정보처리방침</title>
+    <title>HESUDAN STUDIO - 개인정보처리방침</title>
     <style>
-        /* 기본 모바일 최적화 스타일링 */
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            line-height: 1.7; 
-            color: #222; 
-            background-color: #fff;
-            padding: 24px 16px; 
-            max-width: 720px; 
-            margin: 0 auto; 
-            word-break: keep-all; /* 한글 가독성을 위해 단어 단위로 줄바꿈 */
+        /* 기본 스타일 및 공식 홈페이지 레이아웃 통일 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #fff;
+            background-color: #121212;
+            /* 메인 페이지와 동일한 어두운 배경 이미지 적용 */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            word-break: keep-all;
         }
-        h1 { font-size: 24px; font-weight: 700; border-bottom: 2px solid #111; padding-bottom: 12px; margin-bottom: 24px; }
-        h2 { font-size: 18px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #000; }
-        p, li { font-size: 14px; color: #444; margin-bottom: 10px; }
-        ul { padding-left: 20px; }
-        
-        /* 다크모드 대응 (유저 스마트폰이 다크모드일 때 눈부심 방지) */
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #121212; color: #e0e0e0; }
-            h1 { border-bottom-color: #444; color: #fff; }
-            h2 { color: #fff; }
-            p, li { color: #b0b0b0; }
+
+        /* 상단 헤더 바 (메인 페이지와 백드롭 블러 통일) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #fff; }
+
+        /* 약관 본문 컨테이너 영역 */
+        .container {
+            flex: 1;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(5px);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 약관 텍스트 타이포그래피 스타일링 */
+        h1 { 
+            font-size: 28px; 
+            font-weight: 700; 
+            border-bottom: 2px solid #fff; 
+            padding-bottom: 16px; 
+            margin-bottom: 12px; 
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        .date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        h2 { 
+            font-size: 19px; 
+            font-weight: 600; 
+            margin-top: 40px; 
+            margin-bottom: 16px; 
+            color: #fff; 
+            border-left: 4px solid #fff;
+            padding-left: 10px;
+        }
+        p, li { 
+            font-size: 15px; 
+            color: #ccc; 
+            line-height: 1.8; 
+            margin-bottom: 12px; 
+        }
+        p span {
+            display: block;
+            margin-top: 6px;
+            padding-left: 4px;
+        }
+
+        /* 하단 푸터 (구글 주소지 증빙용 정보 노출) */
+        footer {
+            background: #090909;
+            padding: 30px 40px;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.8;
+        }
+        .footer-info {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .footer-links {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .footer-links a:hover { color: #fff; }
+
+        /* 모바일 화면 대응 패딩 조절 */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .container { padding: 40px 16px; border: none; }
+            h1 { font-size: 22px; }
+            h2 { font-size: 17px; }
+            p, li { font-size: 14px; }
+            footer { padding: 25px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>환수도사 개인정보 처리방침</h1>
-    <p>최종 수정일: 2026년 5월 13일</p>
-    
-    <h2>1. 개인정보의 수집 항목 및 범위</h2>
-    <p>
-          회사는 "서비스" 제공을 위해 아래와 같은 정보를 수집합니다.<br>
-          &#9312; 자동 수집 항목: 기기 식별자(ADID/IDFA), 모델명, OS 버전, 서비스 이용 기록, 결제 기록.<br>
-          &#9313; 계정 연동 시: 구글 또는 애플 계정 고유 ID, 닉네임.
-    </p>   
-    </ul>
-    
-    <h2>2. 아동의 개인정보 보호 (COPPA)</h2>
-    <p>
-          &#9312; 본 "서비스"는 만 13세 미만(또는 현지 법령에 따른 기준 연령)의 아동을 대상으로 하지 않으며, 고의로 아동의 개인정보를 수집하지 않습니다.<br>
-          &#9313; 만약 아동의 정보가 수집되었음을 인지할 경우, 해당 정보는 지체 없이 파기됩니다.
-    </p>
-    </ul>
-  
-    <h2>3. 개인정보의 수집 및 이용 목적</h2>
-    <p>
-          회사는 수집한 정보를 다음의 목적을 위해 활용합니다.<br>
-          &#9312; 게임 이용에 따른 본인 확인 및 데이터 저장(클라우드 세이브).<br>
-          &#9313; 맞춤형 광고 노출 및 광고 시청에 따른 보상(옥 등) 지급.<br>
-          &#9314; 서비스 오류 분석 및 통계적 이용 분석을 통한 서비스 개선.
-    </p>
-    </ul>
-    
-    <h2>4. 개인정보의 제3자 제공 및 위탁</h2>
-    <p>
-          회사는 효율적인 서비스 제공을 위해 아래 외부 업체에 정보를 위탁하거나 제공합니다.<br>
-          &#9312; 광고 서비스: Google AdMob, Unity Ads (맞춤형 광고 제공 및 성과 분석).<br>
-          &#9313; 분석 및 시스템: Google Firebase (게임 로그 분석 및 알림 전송).
-    </p>
-    </ul>
-    
-    <h2>5. 이용자의 권리 및 탈퇴 방법</h2>
-    <p>
-          &#9312; 이용자는 게임 내 '계정 탈퇴' 기능을 통해 자신의 개인정보 및 데이터를 즉시 삭제할 수 있습니다.<br>
-          &#9313; 이용자는 언제든지 개발자 이메일을 통해 개인정보의 열람, 수정, 삭제를 요청할 수 있습니다.
-    </p>
-    </ul>
-    
-    <h2>6. 개인정보 보호책임자 및 담당부서</h2>
-    <p>
-          &#9312; 상호: 해수단 / 담당자: 한듸<br>
-          &#9313; 연락처: teamhasudan@gmail.com
-    </p>
-    </ul>
-    
-    <p>
-          공고일자: 2026년 월 일<br>
-          시행일자: 2026년 월 일
-    </p>
-    </ul>
-    
-    
-    <!-- 나머지 약관 내용을 <h2>와 <p>, <ul> 태그를 활용해 채워주세요 -->
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../logo.png" alt="HESUDAN">
+                <span>HESUDAN</span>
+            </a>
+        </div>
+        <nav>
+            <a href="../index.html">홈으로</a>
+            <a href="./privacy.html" style="color: #fff; font-weight: bold;">개인정보처리방침</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>환수도사 개인정보 처리방침</h1>
+        <p class="date">최종 수정일: 2026년 5월 13일</p>
+        
+        <h2>1. 개인정보의 수집 항목 및 범위</h2>
+        <p>
+            회사는 "서비스" 제공을 위해 아래와 같은 정보를 수집합니다.
+            <span>① 자동 수집 항목: 기기 식별자(ADID/IDFA), 모델명, OS 버전, 서비스 이용 기록, 결제 기록.</span>
+            <span>② 계정 연동 시: 구글 또는 애플 계정 고유 ID, 닉네임.</span>
+        </p>    
+        
+        <h2>2. 아동의 개인정보 보호 (COPPA)</h2>
+        <p>
+            <span>① 본 "서비스"는 만 13세 미만(또는 현지 법령에 따른 기준 연령)의 아동을 대상으로 하지 않으며, 고의로 아동의 개인정보를 수집하지 않습니다.</span>
+            <span>② 만약 아동의 정보가 수집되었음을 인지할 경우, 해당 정보는 지체 없이 파기됩니다.</span>
+        </p>
+      
+        <h2>3. 개인정보의 수집 및 이용 목적</h2>
+        <p>
+            회사는 수집한 정보를 다음의 목적을 위해 활용합니다.
+            <span>① 게임 이용에 따른 본인 확인 및 데이터 저장(클라우드 세이브).</span>
+            <span>② 맞춤형 광고 노출 및 광고 시청에 따른 보상(옥 등) 지급.</span>
+            <span>③ 서비스 오류 분석 및 통계적 이용 분석을 통한 서비스 개선.</span>
+        </p>
+        
+        <h2>4. 개인정보의 제3자 제공 및 위탁</h2>
+        <p>
+            회사는 효율적인 서비스 제공을 위해 아래 외부 업체에 정보를 위탁하거나 제공합니다.
+            <span>① 광고 서비스: Google AdMob, Unity Ads (맞춤형 광고 제공 및 성과 분석).</span>
+            <span>② 분석 및 시스템: Google Firebase (게임 로그 분석 및 알림 전송).</span>
+        </p>
+        
+        <h2>5. 이용자의 권리 및 탈퇴 방법</h2>
+        <p>
+            <span>① 이용자는 게임 내 '계정 탈퇴' 기능을 통해 자신의 개인정보 및 데이터를 즉시 삭제할 수 있습니다.</span>
+            <span>② 이용자는 언제든지 개발자 이메일을 통해 개인정보의 열람, 수정, 삭제를 요청할 수 있습니다.</span>
+        </p>
+        
+        <h2>6. 개인정보 보호책임자 및 담당부서</h2>
+        <p>
+            <span>① 상호: 해수단 / 담당자: 한듸</span>
+            <span>② 연락처: teamhasudan@gmail.com</span>
+        </p>
+        
+        <p style="margin-top: 40px; color: #888;">
+            공고일자: 2026년 5월 13일<br>
+            시행일자: 2026년 5월 13일
+        </p>
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <div class="footer-links">
+                <a href="./privacy.html">개인정보처리방침</a>
+            </div>
+            <p>상호명: 혜수단(HESUDAN) | 대표자: 정성훈</p>
+            <p>주소: 경기도 오산시 매홀로77번길24-26,103호</p> 
+            <p>이메일: tjdgns1131@gmail.com</p>
+            <p style="margin-top: 10px;">&copy; 2026 HESUDAN. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
